@@ -1,0 +1,106 @@
+=============
+RubyOSA 0.4.0
+=============
+
+Features:
+- Added the possibility to retrieve from an object specifier list object the
+  values of a given attribute, via the 'every' method ;
+- Examples: iTunes/tag_genre_lastfm.rb (new revision that queries Last.fm only 
+  once per artist), iTunes/name_that_tune.rb, Photoshop/new_doc.rb,
+  Photoshop/new_doc_with_text.rb ;
+- The rdoc-osa tool now supports scripting additions (via the '--addition' 
+  argument) ;
+- Added conversion support for color types ;
+- Allow multiple enum values to be passed into the same argument (packing them 
+  in an array) ;
+- Merge an 'activate' method into application objects.
+
+Bugfixes:
+- Fixed the rdoc-osa tool for applications that do not have a name command ;
+- Fixed 'msng' type conversions ;
+- Do not fail if a description attribute has an empty value ;
+- Do not fail if a class inherits from a class that hasn't been defined yet ;
+- When converting an Hash object to OSA, property convert Array values ;
+- Convert type-less Float objects to OSA ;
+- Added the :size attribute as a shortcut to :point_size ;
+- Fixed the rdoc-osa tool to work when RubyGems isn't available in the machine ;
+- Make sure to include a 'subj' attribute to apple events without direct 
+  parameters.
+
+=============
+RubyOSA 0.3.0
+=============
+
+Features:
+- Can control applications running on remote machines ;
+- Now possible to pass optional arguments using key/value Hash pairs (the old 
+  way is still possible) ;
+- added support for merging scripting additions definitions to the current 
+  application ;
+- Better unified API ;
+- Added new samples: AddressBook/inspect, iTunes/tag_genre_lastfm, 
+  Mail/get_selected_mail ; 
+- Translating property codes to human-readable symbols ;
+- More human-readable errors ;
+- Added support for before/after location reference types ;
+- Faster (no more costly evaluation calls).
+
+Bugfixes:
+- Fixed handling of application-level errors ;
+- Unescape the converted 'alis' paths ;
+- Now building 64-bit ;
+- Make sure '$' and '=' are escaped when generating Ruby symbols ;
+- Added a functional test suite ;
+- Fixed the OSA -> Ruby 'TIFF' conversion ;
+- Fixed the Ruby -> OSA 'list_of_*' conversion ;
+- Make sure we send events with the user-can-interact flag set on ;
+- Better RDoc generation (removed the Files frame, references to the generated
+  dummy Ruby file and source code, changed the default HTML title) ;
+- Better inspect methods for OSA::Element and OSA::ObjectSpecifierList ;
+- Same conversion behavior for 'type' than 'type class' ;
+- Smarter #get method, if the resolved object doesn't inherit from the desired 
+  class, and if it has a property method with a class key/value, return a new 
+  descriptor of the desired class ;
+- Honors the 'id' attribute of the sdef format ;
+- Be smarter when converting types from Ruby to OSA, making sure primitive
+  types are always converted ;
+- Fixed a memory leak ;
+- Added a new global setting to control either a return value should be
+  expected or not from the following Apple events. Variable is OSA.wait_reply,
+  default value is nil which means "automatic behavior".
+
+=============
+RubyOSA 0.2.0
+=============
+
+Features:
+- Added support for some picture types ;
+- Possible to use UTF-8 strings (if OSA.utf8_strings is set to true) ;
+- Added new samples: Finder_show_desktop, BBEdit_unix_script, iTunes_artwork
+  and iChat_images ;
+- Translate file paths, Hashes, floating types and missing types. 
+
+Bugfixes:
+- Handle application errors and convert them as Ruby exceptions ;
+- Added 'class' to the list of reserved Ruby keywords to prefix when generating
+  method parameters ;
+- Suffix method names that are already registered with an integer value
+  instead of prefixing with 'osa_' as there might be more than 2 duplicates ;
+- Register the ID property if not already defined ;
+- Fixed conversion handlers to not use 'self' ;
+- Make sure to swap the data of 'type' coerced descriptors ;
+- Convert four char codes to the Mac Roman encoding before using them,
+  as otherwise they could be considered as more-than-4-bytes strings ;
+- Remove invalid characters when generating constants ;
+- Changed the "require 'rubygems'..." expressions to make them compatible with 
+  Ruby 1.8.2 ;
+- Try to require 'rubygems' in samples, as RubyOSA may have been
+  installed as a gem ;
+- Fixed generated code for methods taking an enumeration-like parameter ;
+- Convert the 'doub' OSA type as a Ruby double.
+
+=============
+RubyOSA 0.1.0
+=============
+
+This is the first public release.
