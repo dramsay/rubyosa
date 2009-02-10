@@ -1,11 +1,10 @@
 Gem::Specification.new do |s|
     s.name = 'rubyosa'
     s.version = '0.4.0'
-    s.date = '2007-04-11'
+    s.date = '2009-02-10'
     s.summary = 'A Ruby/AppleEvent bridge.'
-    s.email = 'lsansonetti@apple.com'
-    s.homepage = 'http://rubyosa.rubyforge.org'
-    s.rubyforge_project = 'rubyosa'
+    s.email = 'dramsay on github'
+    s.homepage = 'http://github.com/dramsay/rubyosa'
     s.description = "RubyOSA is a bridge that connects Ruby to the Apple Event Manager, automatically populating the API according to the target application's scriptable definition."
     s.has_rdoc = false
     s.authors = ['Laurent Sansonetti']
